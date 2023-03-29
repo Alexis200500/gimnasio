@@ -21,4 +21,8 @@ Route::get('/', function () {
 
 Route::controller(UsuariosController::class)->group(function(){
     Route::get('usuarios','usuarios')->name('usuarios');
+    Route::get('alta_usuario','alta_usuario')->name('alta_usuario');
+    Route::post('guardar_usuario','guardar_usuario')->name('guardar_usuario');
+    Route::get('actualizar_usuario/{id}','actualizar_usuario')->name('actualizar_usuario');
+    Route::post('usuario_actualizado','usuario_actualizado')->name('usuario_actualizado');
 });
