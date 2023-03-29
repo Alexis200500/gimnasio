@@ -26,3 +26,7 @@ Route::controller(UsuariosController::class)->group(function(){
     Route::get('actualizar_usuario/{id}','actualizar_usuario')->name('actualizar_usuario');
     Route::post('usuario_actualizado','usuario_actualizado')->name('usuario_actualizado');
 });
+
+
+// Route::get('usuarios', [UsuariosController::class, 'usuarios']);
+Route::get('usuarios/list', [UsuariosController::class, 'getusuarios'])->name('usuarios.list');

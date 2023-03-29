@@ -5,18 +5,34 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\usuarios;
 use Carbon\Carbon;
+use DataTables;
 
 class UsuariosController extends Controller
 {
+    public function getusuarios(Request $request){
+      if($request->ajax()){
+        $data = usuarios::latest()->get();
+        return DataTables::of($data)
+          ->addIndexColumn()
+          ->addColumn('action', function($row){
+            $actionBtn = '<a href="javascript:void(0)" class="edit btn btn-success btn-sm">Actualizar pago</a>';
+            return $actionBtn;
+          })
+          ->rawColumns(['action'])
+          ->make(true);
+      }
+    }
+
     public function usuarios(){
-      $hoy = Carbon::today();
-      $hoy= $hoy->format('Y-m-d');
-      // return $hoy;
+      // $hoy = Carbon::today();
+      // $hoy= $hoy->format('Y-m-d');
+      // // return $hoy;
       
-      $usuarios = usuarios::select('usuarios.*')->selectRaw("DATEDIFF(fecha_proximo_pago, '$hoy') AS dias")->get();
+      // $usuarios = usuarios::select('usuarios.*')->selectRaw("DATEDIFF(fecha_proximo_pago, '$hoy') AS dias")->get();
 
       // return $usuarios;
-      return view('usuarios.reportes')->with('usuarios',$usuarios);
+      return view('usuarios.reportes');
+      // ->with('usuarios',$usuarios);
 
 
     }
