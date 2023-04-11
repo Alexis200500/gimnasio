@@ -23,6 +23,16 @@ class UsuariosController extends Controller
       }
     } */
 
+    public function buscar_usuarios(Request $request){
+      $usuarios = usuarios::all()->selectRaw("DATEDIFF(fecha_proximo_pago, '$hoy') AS dias");
+      if($request->keyword != ''){
+      $usuarios = usuarios::where('nombre','LIKE','%'.$request->keyword.'%')->get();
+      }
+      return response()->json([
+         'usuarios' => $usuarios
+      ]);
+    }
+
     public function usuarios(){
       $hoy = Carbon::today();
       $hoy= $hoy->format('Y-m-d');
