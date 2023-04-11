@@ -16,7 +16,7 @@ class UsuariosSeeder extends Seeder
     {
       usuarios::insert([
         [
-          'id_tarjeta'=>'dkllksd2221',
+          'id_tarjeta'=>mt_rand(1000000000000000,10000000000000000),
           'nombre'=>'Alexis',
           'apellido_paterno'=>'Morales',
           'apellido_materno'=>'Gómez',

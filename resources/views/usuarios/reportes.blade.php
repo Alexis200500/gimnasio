@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
-    <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </head>
 <body>
 
 <h1>Gimnasio</h1>
 
-<button>
-  <a href="{{route('alta_usuario')}}">Agregar</a>
-</button>
-<table class="table table-bordered yajra-datatable">
+<a href="{{route('alta_usuario')}}">
+<button class="btn btn-success">
+    Agregar
+  </button>
+</a>
+<table class="table table-dark table-hover">
   <thead>
     <th>ID</th>
     <th>ID tarjeta</th>
@@ -27,14 +27,33 @@
     <th>Fecha de inscripción</th>
     <th>Fecha de pago</th>
     <th>Fecha de proximo pago</th>
-    {{-- <th>Días disponibles</th> --}}
+    <th>Días disponibles</th>
     <th>Actualizar pago</th>
   </thead>
   <tbody>
-
+    @forelse ($usuarios as $usuario)
+      <tr>
+        <td>{{$usuario->id}}</td>
+        <td>{{$usuario->id_tarjeta}}</td>
+        <td>{{$usuario->nombre}} {{$usuario->apellido_paterno}} {{$usuario->apellido_materno}}</td>
+        <td>{{$usuario->fecha_nacimiento}}</td>
+        <td>{{$usuario->telefono_emergencia}}</td>
+        <td>{{$usuario->fecha_inscripcion}}</td>
+        <td>{{$usuario->fecha_pago}}</td>
+        <td>{{$usuario->fecha_proximo_pago}}</td>
+        <td>{{$usuario->dias}}</td>
+        <td>
+          <a href="{{route('actualizar_usuario',[$usuario->id])}}">
+            <button class="btn btn-primary">Actualizar</button>
+          </a>
+        </td>
+      </tr>
+    @empty
+        
+    @endforelse
   </tbody>
 </table>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -63,6 +82,6 @@
       ]
     });
   });
-</script>
+</script> --}}
 </body>
 </html>

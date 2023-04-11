@@ -29,4 +29,4 @@ Route::controller(UsuariosController::class)->group(function(){
 
 
 // Route::get('usuarios', [UsuariosController::class, 'usuarios']);
-Route::get('usuarios/list', [UsuariosController::class, 'getusuarios'])->name('usuarios.list');
+// Route::get('usuarios/list', [UsuariosController::class, 'getusuarios'])->name('usuarios.list');
