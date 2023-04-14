@@ -35,7 +35,7 @@
     <th>Fecha de pago</th>
     <th>Fecha de proximo pago</th>
     <th>Días disponibles</th>
-    <th>Actualizar pago</th>
+    <th>Actualizar pago </th>
   </thead>
   <tbody>
     @forelse ($usuarios as $usuario)
