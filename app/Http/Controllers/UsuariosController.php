@@ -6,22 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\usuarios;
 use Carbon\Carbon;
 use DataTables;
+use Session;
 
 class UsuariosController extends Controller
 {
-    /* public function getusuarios(Request $request){
-      if($request->ajax()){
-        $data = usuarios::latest()->get();
-        return DataTables::of($data)
-          ->addIndexColumn()
-          ->addColumn('action', function($row){
-            $actionBtn = '<a href="actualizar_usuario->id" class="edit btn btn-success btn-sm">Actualizar pago</a>';
-            return $actionBtn;
-          })
-          ->rawColumns(['action'])
-          ->make(true);
-      }
-    } */
+   
+    public function index(){
+      return view('index');
+    }
 
     public function buscar_usuarios(Request $request){
       $usuarios = usuarios::all()->selectRaw("DATEDIFF(fecha_proximo_pago, '$hoy') AS dias");
@@ -66,7 +58,7 @@ class UsuariosController extends Controller
       $usuario->fecha_pago = $request->fecha_pago;
       $usuario->fecha_proximo_pago = $request->fecha_proximo_pago;
       $usuario->save();
-
+      Session::flash('mensaje','Usuario creado');
       return redirect()->route('usuarios');
 
 
@@ -91,7 +83,6 @@ class UsuariosController extends Controller
       $usuario->fecha_pago = $request->fecha_pago;
       $usuario->fecha_proximo_pago = $request->fecha_proximo_pago;
       $usuario->save();
-
       return redirect()->route('usuarios');
     }
 }

@@ -20,6 +20,7 @@ Route::get('/', function () {
 });
 
 Route::controller(UsuariosController::class)->group(function(){
+    Route::get('index','index')->name('index');
     Route::get('usuarios','usuarios')->name('usuarios');
     Route::post('usuarios/search','buscar_usuarios')->name('usuarios.search');
     Route::get('alta_usuario','alta_usuario')->name('alta_usuario');
