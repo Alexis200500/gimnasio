@@ -11,10 +11,6 @@
 </head>
 <body>
 
-    <div class="title">
-        <h1>Gimnasio</h1>
-    </div>
-
     <div class="contenido">
         @yield('container')
     </div>

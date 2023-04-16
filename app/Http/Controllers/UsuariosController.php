@@ -83,6 +83,7 @@ class UsuariosController extends Controller
       $usuario->fecha_pago = $request->fecha_pago;
       $usuario->fecha_proximo_pago = $request->fecha_proximo_pago;
       $usuario->save();
+      Session::flash('mensaje','Usuario actualizado');
       return redirect()->route('usuarios');
     }
 }

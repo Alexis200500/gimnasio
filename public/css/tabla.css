@@ -32,6 +32,19 @@ body{
     
 }
 
+
+.formularios{
+	/* background-color:tomato; */
+	padding: 50px;
+	margin: auto auto;
+	width: 45%;
+	color: #fff;
+	background-color:#f0f0f0;
+	font-family:helvetica;
+	background:url('http://clevertechie.com/img/bnet-bg.jpg') #0f2439 no-repeat center top;
+}
+
+
 #main-container{
 	margin: 150px auto;
 	width: 600px;
@@ -45,7 +58,7 @@ table{
 }
 
 th, td{
-	padding: 20px;
+	padding: 15px;
 }
 
 thead{
@@ -67,3 +80,29 @@ tr:hover td{
     text-align: center;
 }
 
+  select,
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="date"],
+  input[type="email"]
+  {
+	height:30px;
+	width:100%;;
+	display: inline-block;
+	vertical-align: middle;
+	height: 34px;
+	padding: 0 10px;
+	margin-top: 3px;
+	margin-bottom: 10px;
+	font-size: 15px;
+	line-height: 20px;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	background-color: rgba(0, 0, 0, 0.5);
+	color: rgba(255, 255, 255, 0.7);
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border-radius: 2px;
+  }
+  
+ 

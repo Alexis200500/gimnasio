@@ -1,6 +1,10 @@
 @extends('index')
 @section('container')
-    
+
+<div class="title">
+  <h1>Gimnasio</h1>
+</div>
+
 
 <div class="agregar">
   <a href="{{route('alta_usuario')}}">
@@ -45,7 +49,7 @@
             <td>{{$usuario->dias}}</td>
             <td>
               <a href="{{route('actualizar_usuario',[$usuario->id])}}">
-                <button>Actualizar</button>
+                <button class="btn btn-block btn-primary">Actualizar</button>
               </a>
             </td>
           </tr>
